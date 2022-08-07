@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <section class="input">
+
+
+        <div class="container-fluid">
+            <div class="innerContainer">
+                <div class="row">
+                    <div class="ingredient col-lg-6">
+                        Ingredient 1 <br><input id="ingridentOne" type="text" /><br> Ingredient 2 <br><input
+                            id="ingridentTwo" type="text" /> <br>
+
+                        Ingredient 3 <br><input id="ingridentThree" type="text" /><br> Ingredient 4 <br><input
+                            id="ingridentFour" type="text" /> <br>
+                        Ingredient 5 <br><input id="ingridentFive" type="text" />
+                    </div>
+                    <div class="amount col-lg-6">
+                        Amount <br><input id="amountOne" type="text" /><br> Amount <br>
+                        <input id="amountTwo" type="text" /><br> Amount <br>
+                        <input id="amountThree" type="text" /><br> Amount <br>
+                        <input id="amountFour" type="text" /><br> Amount <br>
+                        <input id="amountFive" type="text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="output">
+
+
+        <div class="options">
+            <div class="include">
+                <input id="include" value="include" type="radio" name="include" />
+                <label for="include">Inclue the amount</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- </div> -->
+                <!-- <div class="include"> -->
+                <input id="notInclude" value="notInclude" type="radio" name="include" />
+                <label for="notInclude">Do not inclue the amount</label>
+            </div>
+        </div>
+        <button class="btn btn-dark btn-lg" onclick="handleSubmit()">Summarize</button>
+        <div class="summaryDiv">
+            <h4>Summary : </h4>
+            <h4 id="display"></h4>
+        </div>
+        </div>
+		</section>
+    <section class="footer">
+        <div class="ref">
+            <h3>Recipes</h3>
+            <br>
+            <h4></h4><a href="foodrecipe1.html">(1) Easy Vegetarian Chili Recipe</a></h4>
+			<h4></h4><a href="foodrecipe2.html">(2) Blueberry smoothie bowl</a></h4>
+			<h4></h4><a href="foodrecipe3.html">(3) curry chickpea salad</a></h4>
+        </div>
+    </section>
+    <!-- JavaScript -->
+    <script>
+        const handleSubmit = () => {
+            var ingridentOne = document.getElementById("ingridentOne").value;
+            var ingridentTwo = document.getElementById("ingridentTwo").value;
+            var ingridentThree = document.getElementById("ingridentThree").value;
+            var ingridentFour = document.getElementById("ingridentFour").value;
+            var ingridentFive = document.getElementById("ingridentFive").value;
+            // ------------
+            var amountOne = document.getElementById("amountOne").value;
+            var amountTwo = document.getElementById("amountTwo").value;
+            var amountThree = document.getElementById("amountThree").value;
+            var amountFour = document.getElementById("amountFour").value;
+            var amountFive = document.getElementById("amountFive").value;
+            // -----------
+            if (document.getElementById("include").checked) {
+                var include = document.getElementById("include").value;
+            }
+            if (document.getElementById("notInclude").checked) {
+                var notInclude = document.getElementById("notInclude").value;
+            }
+            console.log(typeof include, typeof notInclude);
+            // var include = document.getElementById("include").value;
+            // var notInclude = document.getElementById("notInclude").value;
+
+            // console.log("include", include);
+            // console.log("notInclude", notInclude);
+
+            if (include) {
+                if (
+                    ingridentOne &&
+                    ingridentTwo &&
+                    ingridentThree &&
+                    ingridentFour &&
+                    ingridentFive
+                ) {
+                    document.getElementById("display").innerHTML =
+                        ingridentOne +
+                        " (" +
+                        amountOne +
+                        "), " +
+                        ingridentTwo +
+                        " (" +
+                        amountTwo +
+                        "), " +
+                        ingridentThree +
+                        " (" +
+                        amountThree +
+                        "), " +
+                        ingridentFour +
+                        " (" +
+                        amountFour +
+                        "), " +
+                        ingridentFive +
+                        " (" +
+                        amountFive +
+                        ") ";
+                } else if (
+                    ingridentOne &&
+                    ingridentTwo &&
+                    ingridentThree &&
+                    ingridentFour
+                ) {
+                    document.getElementById("display").innerHTML =
+                        ingridentOne +
+                        " (" +
+                        amountOne +
+                        "), " +
+                        ingridentTwo +
+                        " (" +
+                        amountTwo +
+                        "), " +
+                        ingridentThree +
+                        " (" +
+                        amountThree +
+                        "), " +
+                        ingridentFour +
+                        " (" +
+                        amountFour +
+                        ") ";
+                } else if (ingridentOne && ingridentTwo && ingridentThree) {
+                    document.getElementById("display").innerHTML =
+                        ingridentOne +
+                        " (" +
+                        amountOne +
+                        "), " +
+                        ingridentTwo +
+                        " (" +
+                        amountTwo +
+                        "), " +
+                        ingridentThree +
+                        " (" +
+                        amountThree +
+                        ") ";
+                } else if (ingridentOne && ingridentTwo) {
+                    document.getElementById("display").innerHTML =
+                        ingridentOne +
+                        " (" +
+                        amountOne +
+                        "), " +
+                        ingridentTwo +
+                        " (" +
+                        amountTwo +
+                        ") ";
+                } else if (ingridentOne) {
+                    document.getElementById("display").innerHTML =
+                        ingridentOne + " (" + amountOne + ") ";
+                }
+            }
+            if (notInclude) {
+                if (
+                    ingridentOne &&
+                    ingridentTwo &&
+                    ingridentThree &&
+                    ingridentFour &&
+                    ingridentFive
+                ) {
+                    document.getElementById("display").innerHTML =
+                        ingridentOne +
+                        ", " +
+                        ingridentTwo +
+                        ", " +
+                        ingridentThree +
+                        ", " +
+                        ingridentFour +
+                        ", " +
+                        ingridentFive;
+                } else if (
+                    ingridentOne &&
+                    ingridentTwo &&
+                    ingridentThree &&
+                    ingridentFour
+                ) {
+                    document.getElementById("display").innerHTML =
+                        ingridentOne +
+                        ", " +
+                        ingridentTwo +
+                        ", " +
+                        ingridentThree +
+                        ", " +
+                        ingridentFour;
+                } else if (ingridentOne && ingridentTwo && ingridentThree) {
+                    document.getElementById("display").innerHTML = ingridentOne + ", " + ingridentTwo + ", " + ingridentThree;
+                } else if (ingridentOne && ingridentTwo) {
+                    document.getElementById("display").innerHTML = ingridentOne + ", " + ingridentTwo;
+                } else if (ingridentOne) {
+                    document.getElementById("display").innerHTML = ingridentOne;
+                }
+            }
+            console.log("clicked", ingridentOne);
+        };
+    </script>
+</body>
+
+</html>
