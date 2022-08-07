@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <!-- <script src="index.js"></script> -->
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="title" class="black-color">
+      <div class="header">
+        <h1 class="heading title-text">Income Tax Calculator Canada</h1>
+        <h4>Find out how much salary you are left with after tax</h4>
+      </div>
+    </section>
+    <section id="input" class="white-color">
+      <div class="row">
+        <div class="name col-lg-3">
+          <label>Enter your gross income</label><br />
+          <input placeholder="Enter income" type="number" id="income" />
+        </div>
+        <div class="name col-lg-3">
+          <label>Per</label><br />
+          <select id="per">
+            <option value="year">year</option>
+            <option value="monthly">monthly</option>
+            <option value="bi-weekly">bi-weekly</option>
+            <option value="weekly">weekly</option>
+            <option value="daily">daily</option>
+          </select>
+        </div>
+        <div class="name col-lg-3">
+          <label>Where do you work</label>
+          <select id="work">
+            <br />
+            <option value="British Columbia">British Columbia</option>
+            <option value="Ontario">Ontario</option>
+            <option value="Alberta">Alberta</option>
+            <option value="Quebec">Quebec</option>
+            <option value="Manitoba">Manitoba</option>
+            <option value="New Brunswick">New Brunswick</option>
+            <option value="Yukon">Yukon</option>
+          </select>
+        </div>
+        <div class="name col-lg-3">
+          <label for="calculate">Calculate</label><br />
+          <button id="calculate" class="btn btn-success" onclick="calculate()">
+            Click
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="per-time">
+      <div class="row per-time-div-one">
+        <div class="col-lg-6">
+          <h3>Salary rate</h3>
+        </div>
+        <div class="col-lg-6">
+          <button id="year" onclick="year()" type="button">Year</button>
+          <button id="month" onclick="month()" type="button">Month</button>
+          <button id="biWeekly" onclick="biWeekly()" type="button">
+            Biweekly
+          </button>
+          <button id="week" onclick="week()" type="button">Week</button>
+          <button id="day" onclick="day()" type="button">Day</button>
+          <button id="hour" onclick="hour()" type="button">Hour</button>
+        </div>
+      </div>
+    </section>
+    <section id="output">
+      <div class="rowTwo">
+        <h3 class="op-text">WithHolding</h3>
+      </div>
+      <div class="salary">
+        <h3>Salary</h3>
+        <h3 id="salary">----</h3>
+      </div>
+      <div class="salary">
+        <h3>Total Tax</h3>
+        <h3 id="totalTax">----</h3>
+      </div>
+      <div class="salary">
+        <h3 class="op-text">NetPay</h3>
+        <h3 id="NetPay" class="op-text">----</h3>
+      </div>
+    </section>
+    <!-- -------------------------------- -->
+    <script>
+      const tax = (salary) => {
+        if (work === "British Columbia") {
+          return (salary * 29) / 100;
+        } else if (work === "Ontario") {
+          return (salary * 32) / 100;
+        } else if (work === "Alberta") {
+          return (salary * 28) / 100;
+        } else if (work === "Quebec") {
+          return (salary * 30) / 100;
+        } else if (work === "Manitoba") {
+          return (salary * 35) / 100;
+        } else if (work === "New Brunswick") {
+          return (salary * 30) / 100;
+        } else if (work === "Yukon") {
+          return (salary * 20) / 100;
+        }
+      };
+      var income = 0;
+      var per = "year";
+      var work = "Ontario";
+      const calculate = () => {
+        income = document.getElementById("income").value;
+        per = document.getElementById("per").value;
+        work = document.getElementById("work").value;
+      };
+      const year = () => {
+        console.log("Clicked on Month");
+        if (per === "year") {
+          const salary = (document.getElementById("salary").innerText = income);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "monthly") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 12);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+     
+        } else if (per === "bi-weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 2 * 12);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+   
+        } else if (per === "weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 4 * 12);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "daily") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 30 * 12);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        }
+      };
+      const month = () => {
+        console.log("Clicked on Month");
+        if (per === "year") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 12);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "monthly") {
+          const salary = (document.getElementById("salary").innerText = income);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "bi-weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 2);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 4);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "daily") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 30);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        }
+      };
+      const biWeekly = () => {
+        console.log("Clicked on Bi-Weekly");
+        if (per === "year") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 12 / 2);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "monthly") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 2);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "bi-weekly") {
+          const salary = (document.getElementById("salary").innerText = income);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 2);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "daily") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 14);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        }
+      };
+      const week = () => {
+        console.log("Clicked on Week");
+        if (per === "year") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 12 / 4);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "monthly") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 4);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "bi-weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 2);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "weekly") {
+          const salary = (document.getElementById("salary").innerText = income);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "daily") {
+          const salary = (document.getElementById("salary").innerText =
+            income * 7);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        }
+      };
+      const day = () => {
+        console.log("Clicked on Day");
+        if (per === "year") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 12 / 30);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "monthly") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 30);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "bi-weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 14);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 7);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "daily") {
+          const salary = (document.getElementById("salary").innerText = income);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        }
+      };
+      const hour = () => {
+        console.log("Clicked on Hour");
+        if (per === "year") {
+          const salary = (document.getElementById("salary").innerText =
+          income / 12 / 30 / 24);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "monthly") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 30 / 24);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "bi-weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 14 / 24);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "weekly") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 7 / 24);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        } else if (per === "daily") {
+          const salary = (document.getElementById("salary").innerText =
+            income / 24);
+          const taxVal = tax(salary);
+          document.getElementById("totalTax").innerText = taxVal;
+          document.getElementById("NetPay").innerText = salary - taxVal;
+        }
+      };
+      // console.log("income", income, "per", per, "work", work);
+      $(document).ready( function(){
+        $myID = 807485;
+        $input = parseInt($("#inputBox").value());
+        $number = $myID + $input;
+        $("#output").text("Your Magic number is " + $number);
+      } )
+
+    </script>
+  </body>
+</html>
