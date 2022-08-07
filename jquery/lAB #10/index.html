@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- jQuery Lab #10-->
+	<title>jQuery Page</title>
+	<script src="jquery-3.3.1.js"></script>
+	<style>
+		#tip {
+			display: none;
+			color: blue;
+		}
+		p.answer {
+			color: red;
+		}
+	</style>
+	<script>
+	//complete your program using jQuery
+	$(document).ready(function() {
+		$("#feet, #inches").mouseenter(function() {
+			$("#tip").css("display", "inline");
+		});
+		$("#feet, #inches").mouseleave(function (){
+			$("#tip").css("display", "none");
+		});
+
+		$("#myButton").click(function(){
+			var f = parseInt($("#feet").val());
+			var i = parseInt($("#inches").val());
+			var cm = (f * 12 + i) * 2.54;
+			$("#displayResult").text("Your height = " + cm + "centimeters.");
+		});
+
+		$("#myButton").dbclick(function(){
+			var f = parseInt($("#feet").val());
+			var i = parseInt($("#inches").val());
+			var inches = (f * 12 + i);
+			$("#displayResult").text("Your height = " + inches + "centimeters.");
+		});
+	})
+
+
+
+
+
+	</script>
+</head>
+
+<body>
+	<h2>How tall are you? (written by Abhishek)</h2>
+	<section>
+	<!-- complete your HTML code here -->
+	<p>
+		Please enter your height information: 
+	</p>
+	<p>
+		<input type="text" id="feet" size="5"> feet and <input type="text" id="inches" size="5"> inches
+		<button id="myButton" type="button">Click or Double Click</button>
+	</p>
+	<p>
+		<b>Click</b> the button to convert the data in Centimeters or <b>Double Click</b> in Inches
+	</p>
+	<p id="tip">
+		Please enter an integer number
+	</p>
+	<p class="answer" id="displayResult"></p>
+	</section>
+</body>
+</html>

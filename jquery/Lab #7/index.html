@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Lab#7 -->
+	<title>JavaScript Page</title>
+	<style>
+		h2{
+			background-color: brown;
+			color: yellow;
+		}
+		p {
+			color: blue;
+		}
+	</style>
+	<script>
+		function myFunction(){
+			var name = document.getElementById("userName").value;
+			document.getElementById("displayMessage").innerHTML = "Hi, " + name + ". Welcome to my class. "
+					+ String.fromCodePoint(0X1F6A4)
+			document.getElementById("userName").style.visibility = "hidden";
+			document.getElementById("myButton").style.visibility = "hidden";
+		}
+	</script>
+</head>
+
+<body>
+	<h2>
+		Welcome to Abhishek's JavaScript Page
+	</h2>
+	<section>
+		<p id="displayMessage">
+			What is your name?
+		</p>
+		<input type="text" id="userName">
+		<button id="myButton" type="button" onclick="myFunction()">Click Me!</button>
+	</section>
+</body>
+
+</html>
+

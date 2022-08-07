@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- jQuery Assignment -->
+	<script src="jquery-3.3.1.js"></script>
+	<title>jQuery Page</title>
+	<!-- Create embedded stylesheet (DO NOT USE inline style)-->
+	<style>
+		h2{
+			background-color: blue;
+			color: yellow;
+		}
+	
+	</style>
+	<script>
+	//Create jQuery functions here
+	$(function(){
+		$("#myButton").click(function(){
+			var result = parseInt($("#a1").val()) * parseInt($("#a2").val());
+			$("#displayAnswer").html(result);
+		});
+		$("#myButton").dblclick(function(){
+			alert("Double Click detected");
+			var result = parseInt($("#a1").val()) / parseInt($("#a2").val());
+		});
+	});
+
+	</script>
+
+</head>
+
+<body>
+	<h2>Welcome to Abhishek's jQuery Demo</h2>
+	<section>
+		<p>Enter two integers (one for each box): </p>
+		<p>Click the button to find their PRODUCT or Double Click for QUOTIENT</p>
+		<p>
+			<input id="a1" type="text" size="5"> <input id="a2" type="text" size="5">		
+			<button id="myButton" type="button">Click or Double Click</button>
+		</p>
+		<p class="answer" id="displayAnswer"></p>
+	</section>
+</body>
+</html>

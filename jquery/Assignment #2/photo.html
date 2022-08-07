@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<!-- Assignment_2 photo.html (don't change the file name -->
+	<!-- Simrandeep Bagri, 807801 -->
+	<head>
+		<title>Simrandeep Bagri's Photo</title>
+		<style>
+			header {
+				background-color: brown;
+				color: yellow;
+			}
+			nav{
+				text-align: center;
+			}
+			nav ul{
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			nav ul li{
+				display: inline;
+			}
+			.NavItem::after{
+				content: "|";
+				padding: 10px;
+			}
+			.center{
+				text-align: center;
+			}
+			img{
+				display: block;
+				width: 400px;
+				padding: 20px;
+				padding-top: 5px;
+				border: 5px solid blue;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<nav>
+			<ul>
+				<li class="NavItem"><a href="/index.html">Home</a></li>
+				<li class="NavItem"><a href="/photo.html">Photo</a></li>
+			</ul>
+		</nav>
+		<header>
+			<h1 class="center">Simrandeep Bagri's Favorite Photo</h1>
+		</header>
+		<section>
+			<article>
+				<p class="center">
+					My Photo: I am at Stanley Park, Vancouver
+				</p>
+				<aside>
+					<img src="/myFavPic.jpeg" alt="My Fav Photo at Stanley Park">
+				</aside>
+			</article>
+		</section>
+	</body>
+
+</html>

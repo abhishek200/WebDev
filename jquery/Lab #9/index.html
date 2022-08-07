@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<!-- JavaScript Lab#9 (Loops) -->
+	<title>JavaScript Loops</title>
+	<script>
+	function demoLoop(){
+		var num = parseInt(document.getElementById("number").value);
+		var sum = 0;
+		var count = 0;
+
+		var message = "1";
+		for(count = 2; count <= num; count++)
+			message = message + " + " + count;
+
+		for(count = 1; count <= num; count++){
+			sum = sum +count;
+		}
+		document.getElementById("displayAnswer_1").innerHTML = "For Loop Demo: "
+				+ message + "= " + sum;
+		
+		count = 1;
+		sum = 0;
+		while(count <= num){
+			sum = sum + count;
+			count++;
+		}
+		document.getElementById("displayAnswer_2").innerHTML = "while Loop Demo: "
+				+ message + "= " + sum;
+
+		count = 1;
+		sum = 0;
+		do{
+			sum = sum + count;
+			count++;
+		}while(count<=num);
+		document.getElementById("displayAnswer_3").innerHTML = "do..while Loop Demo: " 
+				+ message + "= " + sum;	
+	}
+	</script>
+</head>
+
+<body data-new-gr-c-s-check-loaded="8.887.0" data-gr-ext-installed="">
+	<h2>Loop Demo by Abhishek</h2>
+	<section>
+		<p>Calculate the SUM of all integers between 1 and 
+		<input id="number" type="text" size="4" value="0"> inclusively</p><p> 
+		<button type="button" onclick="demoLoop()">Click Me!</button>
+		</p><p id="displayAnswer_1">For Loop Demo: 1= 0</p>
+		<p id="displayAnswer_2">while Loop Demo: 1= 0</p>
+		<p id="displayAnswer_3">do..while Loop Demo: 1= 1</p>
+	</section>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+</html>

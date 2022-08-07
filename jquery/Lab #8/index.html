@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- LAB#8 -->
+	<title>Guess my name</title>
+	<script>
+		function guessLetter(){
+			var name="Abhishek";
+			var answer=name[0];
+
+			var letter = document.getElementById('firstLetter').value;
+			letter = letter.toUpperCase();
+			if (letter < 'A' || letter > 'Z')
+				result = 'Invalid input! Enter a letter between A and Z';
+			else {
+				if (letter > answer)
+					result = 'Try a letter between A and ' + letter;
+				else if (letter < answer)
+					result = 'Try a letter between ' + letter + ' and Z';
+				else
+					result = "Congratulations! Correct because my name is " + name;
+			}
+			document.getElementById('displayMsg').innerHTML = result;
+		}
+	</script>
+</head>
+
+<body>
+	<h3>Guess, what is the first letter in my FIRST NAME?</h3>
+	<div>
+		<input type="text" id="firstLetter">
+		<button id="myButton" onclick="guessLetter()">Check Result</button>
+		<p id="displayMsg">
+			Try a letter between A and Z.
+		</p>
+	</div>
+
+
+</body>
+</html>

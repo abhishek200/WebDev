@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- JavaScript Assignment#3 -->
+		<!-- Replace the above with your name and ID -->
+	<title>Guess a Secret Number</title>
+	<style>
+		header{
+			background-color: blue;
+			color: white;
+		}
+		
+	
+	</style>
+	<script>
+	function guessSecretNumber(){				
+		var secretNum = 000;			
+						
+		//declare another variable to store userInput
+		var input_num;
+		//write a statement to get userInput number from the text box and store it in the newly declared variable
+		input_num = parseInt(document.getElementById("number").value)
+		//if the userInput is not valid
+		if (isNaN(input_num))
+			alert("Please Enter a Number between 1 and 999 (both inclusive)")
+		else if (input_num < 1 || input_num > 999)
+			//displays invalid input message
+			alert("Please Enter a number between 1 and 999 (both inclusive).")
+		//else
+		else {
+			//if userInput is bigger than secretNum
+			if (input_num > secretNum)
+				//displays hints message
+				alert("Your Input is bigger than the secret number.")
+			//else if userInput is smaller than secretNum
+			else if(input_num < secretNum)
+				//displays hints message
+				alert("Your input is smaller than the secret number")
+			//else
+			else
+				//userInput MUST BE EQUAL to the secretNum
+				alert("Congratulations! You have guessed the secret number.")
+		}
+	}
+	</script>
+</head>
+
+<body>
+	<header>
+		Guess my Secret Number ** written by Abhishek Behgal
+	</header>
+	<section>
+		<p id="displayMsg">Enter a number between (1 and 999) inclusively.</p>
+		<input id="number" type="text"> 
+		<button id="myButton" type="button" onClick="guessSecretNumber()">Check Result</button>
+	</section>
+</body>
+</html>
