@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Final Exam (Practical Part)</title>
+    <script>
+        $(document).ready(function (){
+            $("#myDepositeButton").click(function(){
+                $("#balance").val = parseFloat($("#myBalance").val()) + parseFloat($("#myDeposite").val());
+            });
+        });
+
+    </script>
+    <style>
+        body {
+            text-align: center;
+        }
+        .part1{
+            background-color: yellow;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-top: 20px;" class="part1">
+        <h1>Program to calculate total tax to be paid on a purchase</h1>
+        <br>
+        Subtotal: <input type="text" id="subTotal2">
+        <br>
+        Tip Rate: <input type="radio" name="tipRate2" onclick="tipRate = 0.15">15% &nbsp; <input type="radio" name="tipRate2" onclick="tipRate = 0.18">18%
+        <br>
+        <input type="button" onclick='document.getElementById("dueAmount2").value = document.getElementById("subTotal2").value * (1 + tipRate)' value="Go!">
+        <br>
+        Amount Due: <input type="text" id="dueAmount2">
+
+    </div>
+    
+</body>
+</html>

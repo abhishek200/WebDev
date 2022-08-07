@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Karanbir Singh</title>
+</head>
+<body>
+    <a href="/index.html">HomePage</a>
+
+    <script>
+        var age1 = 5, age2 = 9,
+        grade1 = 78, grade2 = 80;
+        var name1="Preet", name2="Suresh";
+        var Prize = "Toys and more", message;
+        if ((grade1<80) && (grade2<80))
+            message = "no prize";
+        else if (grade1<grade2)
+            if (age1>age2)
+                message =  name2 + " wins " + Prize;
+            else {
+                if (grade2-grade1 > age2-age1)
+                    message =  name1 + " wins " + Prize;
+                    message = " both will win the Prize";
+            }
+        else
+            message = name2 + " wins " + Prize;
+        //to view the message
+        alert(message);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+body{
+    background-color: gray;
+}
+
+img{
+    height: 300px;
+    border: 5px solid gray; 
+}
+
+.otherCities img:hover{
+    border: 5px double orange;
+}
